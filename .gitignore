@@ -1,5 +1,4 @@
 # Project-specific ignores
-.claude/
 /source/
 
 # Build output
