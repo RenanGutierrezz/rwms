@@ -1,5 +1,6 @@
 # Project-specific ignores
 /source/
+CLAUDE.md
 
 # Build output
 bin/
