@@ -33,6 +33,12 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
+// ── Authorization Policies ────────────────────────────────────────────────────
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("OwnerAccess", policy => policy.RequireRole("Owner"))
+    .AddPolicy("ManagerAccess", policy => policy.RequireRole("Owner", "Manager"))
+    .AddPolicy("OrderAccess", policy => policy.RequireRole("Owner", "Manager", "Client"));
+
 // ── Application Services ──────────────────────────────────────────────────────
 builder.Services.AddApplicationServices();
 

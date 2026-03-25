@@ -28,8 +28,8 @@ public class Product
 
     // Soft delete — we never hard-delete products because past orders reference them
     public bool IsActive { get; set; } = true;
+    public DateTime? DeletedAt { get; set; }
 
-    // Audit fields — who created this record and when
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
 
